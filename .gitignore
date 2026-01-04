@@ -39,8 +39,7 @@ env/
 Thumbs.db
 .vscode/
 
-# --- Project-specific (large model files) ---
-backend/models/*.h5
+# --- Project-specific (model files) ---
+# Note: These can be large; GitHub has a 100MB per-file limit.
+# If you hit that limit, use Git LFS instead.
 
-# Keep instructions file tracked
-!backend/models/Instructions.txt
