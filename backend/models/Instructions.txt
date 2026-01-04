@@ -1,0 +1,4 @@
+Make a folder in backend folder named as models and download the both files from the google drive link in it
+
+
+Link: https://drive.google.com/drive/folders/1vF80iPqcp650y5_fTDNIWAqYeHuI2jR4?usp=sharing
