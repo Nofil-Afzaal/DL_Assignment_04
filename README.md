@@ -1,19 +1,61 @@
-This is the Action Caption by Recognizing action and giving caption to the image application trained on Stanford40 Dataset
+# Action Caption (Stanford40)
 
-There are two parts frontend and backend
+A small demo app that:
+- takes a **single image**,
+- predicts the most likely **action** (Stanford40-style classes),
+- generates a simple **caption** based on the predicted class.
 
-Application is made on next project. Model and features are located in backend/model folder
+The project has two parts:
+- **Frontend**: Next.js UI (upload image → predict → show result)
+- **Backend**: Flask API that loads the trained models and returns `{ action, caption }`
 
-To run the project first make sure backend is running 
+## Quick Start
 
-Make a next project 
-- paste the files
-- go to backend folder 
-- run pip install -r requirements.txt
-- then run python app.py command to run backend
-- for frontend run : npm install and then npm run dev commands to run the project
+### 1) Start the backend (Flask)
 
-The training file is located in the TFiles folder and Ouput folder has output files in it 
+From the project root:
 
+```bash
+cd backend
 
-See Instructions.txt file and follow the instructions in order to  download and load the models for proper running of the app.
+# Create venv (recommended)
+python -m venv .venv
+
+# Activate (Windows PowerShell)
+.\.venv\Scripts\Activate.ps1
+
+# Install dependencies
+python -m pip install flask flask-cors tensorflow opencv-python numpy
+
+# Run server
+python app.py
+```
+
+Backend runs at: `http://127.0.0.1:5000`
+
+### 2) Start the frontend (Next.js)
+
+From the project root:
+
+```bash
+npm install
+npm run dev
+```
+
+Open: `http://localhost:3000`
+
+## Models
+
+The trained weights are included in:
+- `backend/models/cnn_feature_extractor.h5`
+- `backend/models/lstm_action_model.h5`
+
+## Training Notebook
+
+The training / preprocessing notebook is in:
+- `TFiles/DataPreprocessing_Training.ipynb`
+
+## Notes
+
+- This is a development/demo setup (Flask dev server).
+- If the frontend says “Backend not responding”, make sure the Flask server is running on `http://127.0.0.1:5000`.
